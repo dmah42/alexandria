@@ -505,10 +505,10 @@ namespace parser {
 		int num_seminormal = 0;
 		for (size_t i = 0; i < len;) {
 			int multibyte_len = 1;
-			int cumsum = 0;
-			for (size_t j = i + 1; (j < len) && IS_MULTIBYTE_CODEPOINT(cstr[j]); j++, multibyte_len++) {
-				cumsum += (unsigned char)cstr[j];
-			}
+			//int cumsum = 0;
+			//for (size_t j = i + 1; (j < len) && IS_MULTIBYTE_CODEPOINT(cstr[j]); j++, multibyte_len++) {
+				//cumsum += (unsigned char)cstr[j];
+			//}
 
 			if (multibyte_len > 2) {
 				num_exotic++;
@@ -540,10 +540,10 @@ namespace parser {
 		int num_seminormal = 0;
 		for (size_t i = 0; i < len;) {
 			int multibyte_len = 1;
-			int cumsum = 0;
-			for (size_t j = i + 1; (j < len) && IS_MULTIBYTE_CODEPOINT(cstr[j]); j++, multibyte_len++) {
-				cumsum += (unsigned char)cstr[j];
-			}
+			//int cumsum = 0;
+			//for (size_t j = i + 1; (j < len) && IS_MULTIBYTE_CODEPOINT(cstr[j]); j++, multibyte_len++) {
+			//	cumsum += (unsigned char)cstr[j];
+			//}
 
 			if (multibyte_len > 2) {
 				num_exotic++;
