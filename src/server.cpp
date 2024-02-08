@@ -43,7 +43,7 @@ using namespace std;
 
 int main(int argc, const char **argv) {
 
-	struct sigaction act{SIG_IGN};
+	struct sigaction act{{SIG_IGN}};
 	sigaction(SIGPIPE, &act, NULL);
 
 	logger::start_logger_thread();

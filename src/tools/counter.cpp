@@ -271,8 +271,6 @@ namespace tools {
 		vector<vector<string>> link_thread_input;
 		algorithm::vector_chunk(link_files, ceil((double)link_files.size() / num_threads), link_thread_input);
 
-		mutex write_file_mutex;
-
 		/*
 		Run url counters
 		*/

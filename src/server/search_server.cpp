@@ -54,7 +54,7 @@ namespace server {
 
 		cout << "starting server..." << endl;
 
-		::http::server srv([&idx_manager, &ht, &url_ht](const http::request &req) {
+		::http::server srv([&idx_manager, &url_ht](const http::request &req) {
 			http::response res;
 
 			URL url = req.url();

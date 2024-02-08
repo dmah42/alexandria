@@ -251,10 +251,8 @@ namespace tools {
 		cout.precision(2);
 		for (auto &result : results) {
 			const unordered_set<pair<uint32_t, uint32_t>, pair_hash> result_set = result.get();
-			size_t idasd = 0;
 			for (const pair<uint32_t, uint32_t> &edge : result_set) {
 				edges.insert(edge);
-				idasd++;
 			}
 			const double percent = (100.0*(double)idx/results.size());
 			cout << "edges contains " << edges.size() << " elements " << percent << "% done" << endl;

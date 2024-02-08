@@ -28,12 +28,10 @@ namespace warc {
 	bool parser::parse_stream(std::istream &stream, std::function<void(const std::string &url, const ::parser::html_parser &html, const std::string &ip,
 				const std::string &date)> callback) {
 		m_callback = callback;
-		size_t total_bytes_read = 0;
 		while (stream.good()) {
 			stream.read(m_z_buffer_in, WARC_PARSER_ZLIB_IN);
 
 			auto bytes_read = stream.gcount();
-			total_bytes_read += bytes_read;
 
 			if (bytes_read > 0) {
 				if (unzip_chunk(bytes_read) < 0) {
@@ -177,7 +175,6 @@ namespace warc {
 	int parser::unzip_chunk(int bytes_in) {
 
 		int consumed = 0;
-		int consumed_total = 0;
 
 		char *ptr = m_z_buffer_in;
 		int len = bytes_in;
@@ -195,7 +192,6 @@ namespace warc {
 			}
 			ptr += consumed;
 			len -= consumed;
-			consumed_total += consumed;
 		}
 
 		return 0;

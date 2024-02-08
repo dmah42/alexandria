@@ -180,7 +180,7 @@ namespace downloader {
 
 			// Optimize all internal links.
 			utils::thread_pool pool(32);
-			file::read_directory(config::data_path() + "/" + std::to_string(i) + "/full_text/internal_links", [&pool](const std::string &filename) {
+			file::read_directory(config::data_path() + "/" + std::to_string(i) + "/full_text/internal_links", [](const std::string &filename) {
 				uint64_t host_hash = std::stoull(filename.substr(0, filename.size() - 5));
 				indexer::index_builder<indexer::value_record> idx("internal_links", host_hash, 1000);
 				idx.optimize();

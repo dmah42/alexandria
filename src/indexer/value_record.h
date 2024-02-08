@@ -30,7 +30,7 @@
 
 namespace indexer {
 
-	#pragma pack(4)
+	#pragma pack(push, vr, 4)
 	class value_record {
 		public:
 		uint64_t m_value;
@@ -74,4 +74,5 @@ namespace indexer {
 		}
 
 	};
+#pragma pack(pop, vr)
 }

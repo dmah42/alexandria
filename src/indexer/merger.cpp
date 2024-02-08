@@ -166,7 +166,7 @@ namespace indexer {
 
 		void start_merge_thread() {
 			merge_thread_is_running = true;
-			merge_thread_obj = std::move(thread(merge_thread));
+			merge_thread_obj = thread(merge_thread);
 		}
 
 		void stop_merge_thread() {

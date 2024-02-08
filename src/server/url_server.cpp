@@ -64,7 +64,7 @@ namespace server {
 				cout << "received " << domain_hashes.size() << " hashes" << endl;
 				size_t all_total_num_results = 0;
 				for (auto dom_hash : domain_hashes) {
-					pool.enqueue([dom_hash, tokens, &query, &result_lock, &results, &all_total_num_results, len]() {
+					pool.enqueue([dom_hash, tokens, &result_lock, &results, &all_total_num_results, len]() {
 						std::vector<indexer::url_record> res;
 
 						vector<indexer::link_record> links;

@@ -104,7 +104,7 @@ namespace indexer {
 		for (level *lvl : m_levels) {
 			lvl->add_index_file(local_path, [this](uint64_t key, const string &value) {
 				m_hash_table->add(key, value);
-			}, [this](uint64_t url_hash, uint64_t domain_hash) {
+			}, [](uint64_t url_hash, uint64_t domain_hash) {
 				//m_url_to_domain->add_url(url_hash, domain_hash);
 			});
 		}
@@ -338,8 +338,8 @@ namespace indexer {
 	void index_manager::add_url_file(const string &local_path) {
 
 		for (level *lvl : m_levels) {
-			lvl->add_index_file(local_path, [this](uint64_t key, const string &value) {
-			}, [this](uint64_t url_hash, uint64_t domain_hash) {
+			lvl->add_index_file(local_path, [](uint64_t key, const string &value) {
+			}, [](uint64_t url_hash, uint64_t domain_hash) {
 			});
 		}
 	}
@@ -523,7 +523,7 @@ namespace indexer {
 		{
 			profiler::instance profile_domain_info("fetch token info");
 			for (auto token : tokens) {
-				bitmaps.emplace_back(std::move(m_domain_info->find_bitmap(token)));
+				bitmaps.emplace_back(m_domain_info->find_bitmap(token));
 				counts.push_back(bitmaps.back().cardinality());
 			}
 		}

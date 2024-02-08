@@ -125,7 +125,7 @@ namespace http {
 		std::vector<std::thread> threads;
 
 		for (size_t i = 0; i < m_workers; i++) {
-			threads.emplace_back(std::move(std::thread([this](int socket_id){ run_worker(socket_id); }, socket_id)));
+			threads.emplace_back(std::thread([this](int socket_id){ run_worker(socket_id); }, socket_id));
 		}
 
 		for (auto &thread : threads) {

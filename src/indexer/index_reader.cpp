@@ -37,7 +37,7 @@ namespace indexer {
 	}
 
 	index_reader_file::index_reader_file(index_reader_file &&other) {
-		m_reader = move(other.m_reader);
+		m_reader = std::move(other.m_reader);
 	}
 
 	bool index_reader_file::seek(size_t position) {

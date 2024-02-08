@@ -499,7 +499,6 @@ namespace parser {
 
 	bool html_parser::is_exotic_language_debug(const string &str) const {
 		const size_t len = str.size();
-		const char *cstr = str.c_str();
 		int num_exotic = 0;
 		int num_normal = 0;
 		int num_seminormal = 0;
@@ -534,7 +533,6 @@ namespace parser {
 
 	bool html_parser::is_exotic_language(const string &str) const {
 		const size_t len = str.size();
-		const char *cstr = str.c_str();
 		int num_exotic = 0;
 		int num_normal = 0;
 		int num_seminormal = 0;

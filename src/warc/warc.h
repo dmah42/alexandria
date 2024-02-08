@@ -30,7 +30,6 @@ namespace warc {
 
 		private:
 
-			int m_cur_offset = 0;
 			bool m_continue_inflate = false;
 			std::string m_result;
 			std::string m_links;

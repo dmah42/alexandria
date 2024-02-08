@@ -40,7 +40,6 @@ namespace http {
 			const std::string &request_body() const { return m_request_body; }
 
 		private:
-			size_t m_code = 200;
 			URL m_url;
 			std::string m_request_method;
 			std::string m_request_body;

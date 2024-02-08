@@ -232,7 +232,7 @@ void custom_scraper() {
 			compress_stream.push(boost::iostreams::gzip_compressor());
 			compress_stream.push(outfile);
 
-			for (const string row : store.get_results()) {
+			for (const string& row : store.get_results()) {
 				compress_stream << row;
 			}
 		}
@@ -253,7 +253,7 @@ void custom_scraper() {
 
 int main(int argc, const char **argv) {
 
-	struct sigaction act{SIG_IGN};
+	struct sigaction act{{SIG_IGN}};
 	sigaction(SIGPIPE, &act, NULL);
 
 	logger::start_logger_thread();

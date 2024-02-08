@@ -140,7 +140,7 @@ int main(int argc, const char **argv) {
 
 		uint64_t thelazy_host_hash = URL(string("https://") + argv[2]).host_hash();
 
-		ht.for_each([thelazy_host_hash, &domain_counts](uint64_t key, std::string value) {
+		ht.for_each([&domain_counts](uint64_t key, std::string value) {
 
 			URL url(value.substr(0, value.find("\t")));
 

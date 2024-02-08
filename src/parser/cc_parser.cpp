@@ -61,7 +61,7 @@ namespace parser {
 		vector<future<void>> results;
 
 		for (const string &warc_path : warc_paths) {
-			results.emplace_back(pool.enqueue([warc_path, num_threads] {
+			results.emplace_back(pool.enqueue([warc_path] {
 				sleep(rand() % (num_threads * 2));
 				run_downloader(warc_path);
 			}));

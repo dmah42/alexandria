@@ -67,9 +67,9 @@ namespace scraper {
 
 	void scraper_stats::start_thread(size_t timeout) {
 		m_timeout = timeout;
-		m_thread = std::move(thread([this]() {
+		m_thread = thread([this]() {
 			this->run();
-		}));
+		});
 	}
 
 	void scraper_stats::start_count(size_t urls_in_queue) {
@@ -400,9 +400,9 @@ namespace scraper {
 
 	void scraper::start_thread() {
 		m_started = true;
-		m_thread = std::move(thread([this](){
+		m_thread = thread([this](){
 			this->run();
-		}));
+		});
 	}
 
 	size_t curl_string_reader(char *ptr, size_t size, size_t nmemb, void *userdata) {

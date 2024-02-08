@@ -64,7 +64,6 @@ namespace common {
 
 	void dictionary_row::read_stream(stringstream &stream) {
 		string col;
-		int i = 0;
 		while (getline(stream, col, '\t')) {
 			try {
 				m_columns.push_back(stod(col));
@@ -72,7 +71,6 @@ namespace common {
 
 			} catch(const out_of_range &error) {
 			}
-			i++;
 		}
 	}
 
